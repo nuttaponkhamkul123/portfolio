@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  margin: 0 !important;
+}
+
+.sticky {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+.relative {
+  position: relative;
+}
+.flex {
+  display: flex;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.containers {
+  height: calc(100vh - 50px) !important;
+}

@@ -1,0 +1,24 @@
+<div class="banner-container containers">
+  <div class="banner">
+    <h1>Nuttapon Khamkul's Portfolio</h1>
+    Website for education purpose
+  </div>
+  <div class="gallery">
+    <div class="gallery-item" *ngFor="let img of imgs">
+      <img [src]="img" alt="" />
+    </div>
+    <div class="gallery-title">Gallery</div>
+  </div>
+  <div class="framework">
+    <div class="framework-title">Frameworks</div>
+
+    <div class="framework-item" *ngFor="let framework of frameworks">
+      <div>
+        {{ framework.title }}
+      </div>
+      <div>
+        {{ framework.desc }}
+      </div>
+    </div>
+  </div>
+</div>
