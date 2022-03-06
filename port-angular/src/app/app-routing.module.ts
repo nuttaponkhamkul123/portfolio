@@ -5,6 +5,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 
 const routes: Routes = [
+  { path : '' ,redirectTo : '/home' ,pathMatch:'full'},
   { path: 'home', component: NameBannerComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'profile', component: ProfileComponent },
