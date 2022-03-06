@@ -3,7 +3,22 @@
   list-style-type: none;
   display: flex;
   margin: 0;
-  justify-content: space-around;
+  justify-content: center;
   background-color: #f07167;
-  padding: 1rem;
+  height:3rem;
+  li{
+    padding-top:1rem;
+    padding-left:2rem;
+    padding-right:2rem;
+    height: 2rem;
+    &.tab-active{
+      background-color: black;
+    }
+    a{
+      
+      text-decoration: none;
+      color:white;
+      font-weight: 600;
+    }
+  }
 }
