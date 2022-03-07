@@ -6,19 +6,43 @@
   justify-content: center;
   background-color: #f07167;
   height:3rem;
+  
   li{
+    position:relative;
     padding-top:1rem;
     padding-left:2rem;
     padding-right:2rem;
     height: 2rem;
+    white-space:nowrap;
+    display:inline-block;
+    // max-width:0;
+    translate:all 300ms ease-in-out;
     &.tab-active{
       background-color: black;
+      a{
+        
+        span{
+          transition:width 300ms ease-in-out;
+          width:100%;
+          max-width:500px;
+        }
+      }
+        
+
+     
+    }
+    span{
+      // position:relative;
+      display:inline-block;
+      overflow-x: hidden;
+      
+      width:0px;
     }
     a{
-      
       text-decoration: none;
       color:white;
       font-weight: 600;
+      
     }
   }
 }
