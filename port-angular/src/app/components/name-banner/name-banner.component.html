@@ -10,12 +10,10 @@
     <div class="gallery-title">Gallery</div>
   </div>
   <div class="framework">
-    <div class="framework-title">Frameworks</div>
+    <div class="framework-title"><span>Frameworks</span></div>
 
     <div class="framework-item" *ngFor="let framework of frameworks">
-      <div>
-        {{ framework.title }}
-      </div>
+      <div class="framework-item-title">{{ framework.title }}</div>
       <div>
         {{ framework.desc }}
       </div>
