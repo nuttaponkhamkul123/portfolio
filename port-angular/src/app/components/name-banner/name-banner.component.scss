@@ -9,13 +9,14 @@ $full: 100%;
     height: 25%;
     padding: 3rem;
     border-bottom-left-radius: 150px;
-
+    border-top-right-radius: 150px;
     h1 {
       margin: 0;
     }
   }
 
   .gallery {
+    margin-top: 0.5rem;
     $gallery-container-height: 200px;
     display: flex;
     position: relative;
@@ -28,11 +29,21 @@ $full: 100%;
       overflow-x: hidden;
       // width: 100px;
       // display: flex;
-      &:hover {
+      &.active {
         // left: 0;
         @for $index from 1 through 4 {
           .gallery-item:nth-child(#{$index}) {
             right: calc((100%) - #{$test * $index}) !important;
+          }
+        }
+        .gallery-item:nth-child(1) {
+          img {
+            border-top-left-radius: 50px !important;
+          }
+        }
+        .gallery-item:nth-child(4) {
+          img {
+            border-top-right-radius: 50px !important;
           }
         }
       }
@@ -53,6 +64,7 @@ $full: 100%;
     }
     .gallery-title {
       // flex-grow: 0.75;
+
       text-align: center;
       padding-left: 2rem;
       padding-right: 2rem;
@@ -62,6 +74,7 @@ $full: 100%;
       background-color: #fed9b7;
       height: 100%;
       border-bottom-right-radius: 100px;
+      border-top-left-radius: 50px;
     }
   }
 
@@ -85,6 +98,7 @@ $full: 100%;
       background-color: #fed9b7;
       height: 100%;
       border-bottom-left-radius: 100px;
+      border-top-right-radius: 100px;
     }
 
     .framework-item {
@@ -94,12 +108,16 @@ $full: 100%;
       padding-left: 2rem;
       padding-top: 2rem;
       flex-grow: 0.75;
+      overflow: hidden;
       transition: box-shadow 0.25s ease-in-out;
+      &:hover {
+        .fw-icon {
+          bottom: 0;
+          right: 0;
+        }
+      }
       // align-items: center;
       // justify-content: center;
-      &:hover {
-        box-shadow: 6px -1px 0.5px 0px rgba(0, 0, 0, 0.75);
-      }
       .framework-item-title {
         font-size: 1.5rem;
         font-weight: 0;
@@ -107,6 +125,18 @@ $full: 100%;
         + div {
           font-weight: 100;
           position: abs;
+        }
+      }
+      .fw-icon {
+        // background-color: pink;
+        position: absolute;
+        bottom: -20px;
+        right: -20px;
+        transition: all 0.2s ease-out;
+        img {
+          width: 200px;
+          height: 200px;
+          opacity: 0.2;
         }
       }
     }

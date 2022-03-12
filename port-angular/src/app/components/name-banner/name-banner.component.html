@@ -4,7 +4,7 @@
     Website for education purpose
   </div>
   <div class="gallery">
-    <div class="image-wrapper">
+    <div class="image-wrapper" [ngClass]="{ active: toggleGallery }">
       <div
         class="gallery-item"
         *ngFor="let img of imgs; let index = index"
@@ -16,7 +16,9 @@
         <img [src]="img" alt="" />
       </div>
     </div>
-    <div class="gallery-title">Gallery</div>
+    <div class="gallery-title" (click)="toggleGallery = !toggleGallery">
+      Gallery
+    </div>
   </div>
   <div class="framework">
     <div class="framework-title"><span>Frameworks</span></div>
@@ -25,6 +27,9 @@
       <div class="framework-item-title">{{ framework.title }}</div>
       <div>
         {{ framework.desc }}
+      </div>
+      <div class="fw-icon">
+        <img [src]="framework.img" alt="" width="30" height="30" />
       </div>
     </div>
   </div>

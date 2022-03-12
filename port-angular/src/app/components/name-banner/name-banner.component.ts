@@ -12,14 +12,17 @@ export class NameBannerComponent implements OnInit {
     '/assets/images/gallery/img3.jpg',
     '/assets/images/gallery/img4.jpg',
   ];
+  toggleGallery : boolean = true;
   frameworks = [
     {
       title: 'Typescript',
       desc: 'Based language to coding this page',
+      img: '/assets/images/frameworks/ts.png'
     },
     {
       title: 'Angular',
       desc: 'Based component management',
+      img: '/assets/images/frameworks/angular.png'
     },
   ];
   constructor() {}
