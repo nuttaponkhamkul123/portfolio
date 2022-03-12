@@ -4,8 +4,17 @@
     Website for education purpose
   </div>
   <div class="gallery">
-    <div class="gallery-item" *ngFor="let img of imgs">
-      <img [src]="img" alt="" />
+    <div class="image-wrapper">
+      <div
+        class="gallery-item"
+        *ngFor="let img of imgs; let index = index"
+        [ngStyle]="{
+          right: 'calc(-50px * ' + index + ') ',
+          'z-index': imgs.length + index
+        }"
+      >
+        <img [src]="img" alt="" />
+      </div>
     </div>
     <div class="gallery-title">Gallery</div>
   </div>
