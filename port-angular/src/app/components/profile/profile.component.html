@@ -1,4 +1,4 @@
-<div class="containers profile-container">
+<div class="containers profile-container" @enterAnimation>
   <div class="relative flex">
     <img class="profile-img" src="./assets/images/profile/profile.jpg" alt="" />
     <div class="profile-name-section">
@@ -36,12 +36,20 @@
     <div class="education-graph">
       <div class="edu-year">2016-2020</div>
       <div class="flex graph-container">
-        <div class="edu-box"></div>
-        <div class="edu-place">
-          Thammasat University<br />B.S. in Computer Science
+        <div class="edu-wrapper">
+
+          <div class="edu-box"></div>
+          <div class="edu-place">
+            Thammasat University<br />B.S. in Computer Science
+          </div>
+
         </div>
       </div>
+
+
     </div>
-    <hr />
+    
+    
   </div>
+  <app-skills></app-skills>
 </div>

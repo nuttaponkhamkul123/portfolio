@@ -27,6 +27,7 @@
     }
   }
   .education-section {
+    position:relative;
     .education-title {
       font-size: 1.5rem;
     }
@@ -34,23 +35,33 @@
       display: flex;
       flex-direction: column;
       width: 100%;
+      &:after{
+        content:'';
+        height:50px;
+      }
       .edu-year {
         width: 100%;
       }
       .graph-container {
         padding-left: 30px;
         position: relative;
-        .edu-box {
-          width: 150px;
-          height: 40px;
-          border-left: 1px solid;
-          border-bottom: 1px solid;
-        }
-        .edu-place {
-          flex: 1 1 0;
+        
+        .edu-wrapper{
+          display:flex;
           position: absolute;
-          left: 180px;
-          top: 30px;
+          
+          .edu-box {
+            width: 60px;
+            height: 40px;
+            border-left: 1px solid;
+            border-bottom: 1px solid;
+          }
+          .edu-place {
+            flex: 1 1 0;
+            padding-top:1rem;
+          }
+
+
         }
       }
     }
