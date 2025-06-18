@@ -3,21 +3,21 @@ import { EnumPosition } from './model/nav-position.model';
 import { NavPositionService } from './nav-position.service';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    standalone: false
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  standalone: false
 })
 export class AppComponent {
   title = 'port-angular';
   navPosition = EnumPosition.HORIZONTAL;
   enumPosition = EnumPosition;
-  constructor(private navPositionService : NavPositionService){}
-  
-  ngOnInit() : void {
+  constructor(private navPositionService: NavPositionService) { }
+
+  ngOnInit(): void {
     this.watchNavPosition();
   }
-  watchNavPosition() : void {
+  watchNavPosition(): void {
     this.navPositionService.getNavPosition().subscribe(position => {
       this.navPosition = position;
     })
