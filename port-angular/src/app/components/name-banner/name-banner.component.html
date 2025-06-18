@@ -1,7 +1,12 @@
 <div class="banner-container containers" @enterAnimation>
   <div class="banner">
-    <h1>Nuttapon Khamkul</h1>
+    <div>
+      <h2 [@fadeAfterDelay]="h2State">Hello</h2>
+
+    </div>
+    <h1 [@fadeAfterDelay]="nameState">Nuttapon Khamkul</h1>
     <!-- Website for education purpose -->
+    <div role="button" class="start-guide" [@fadeAfterDelay]="guideState">Start Tour</div>
   </div>
   <!-- <div class="gallery">
     <div class="image-wrapper" [ngClass]="{ active: toggleGallery }">
@@ -20,7 +25,7 @@
       Gallery
     </div>
   </div> -->
-  <div class="framework">
+  <!-- <div class="framework">
     <div class="framework-title"><span>Frameworks</span></div>
 
     <div class="framework-item" *ngFor="let framework of frameworks">
@@ -32,5 +37,5 @@
         <img [src]="framework.img" alt="" width="30" height="30" />
       </div>
     </div>
-  </div>
+  </div> -->
 </div>

@@ -1,8 +1,13 @@
 <div class="containers" @enterAnimation>
   <h1 class="heading-title">Projects</h1>
   <div class="projects">
-    <div class="project-item" (click)="link.click()" *ngFor="let proj of projects">
-      <img [src]="proj.img" alt="" />
+    <!-- (click)="link.click()" -->
+    <!-- (mouseenter)="activeID = proj.id" (mouseleave)="activeID = -1" -->
+    <div class="project-item" (click)="activeID = proj.id"
+      [ngClass]="{active : proj.id === activeID , invert : proj.id !== activeID && proj.id < activeID}"
+      [ngStyle]="{'--index' : index , '--hover' : proj.id === activeID? '-10%' : '0%'}"
+      *ngFor="let proj of projects; let index = index">
+      <img width="300" [src]="proj.img" alt="" />
       <div class="project-desc">
         {{ proj.title }}
         {{ proj.description }}

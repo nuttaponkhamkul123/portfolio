@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
   standalone: false
 })
 export class ProjectsComponent implements OnInit {
+  activeID = 0;
   projects = [
     {
       id: 0,
@@ -17,6 +18,7 @@ export class ProjectsComponent implements OnInit {
         'Personal project, Implemented with Java and Java Swing library',
       link: 'https://github.com/nuttaponkhamkul123/parcel1.0',
       img: './assets/images/projects/proj1.png',
+
     },
     {
       id: 1,
@@ -24,7 +26,8 @@ export class ProjectsComponent implements OnInit {
       description: 'Computer part E-commerce using PHP and mySQL for learning database design ',
       link: 'https://github.com/nuttaponkhamkul123/bij',
       img: './assets/images/projects/proj2.png',
-    },
+    }
+
   ];
   constructor() { }
 

@@ -1,12 +1,13 @@
-import { enterAnimation } from './../../animation/animation';
+import { delay, of, tap } from 'rxjs';
+import { enterAnimation, fadeAfterDelay } from './../../animation/animation';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-name-banner',
-    templateUrl: './name-banner.component.html',
-    styleUrls: ['./name-banner.component.scss'],
-    animations: [enterAnimation],
-    standalone: false
+  selector: 'app-name-banner',
+  templateUrl: './name-banner.component.html',
+  styleUrls: ['./name-banner.component.scss'],
+  animations: [enterAnimation, fadeAfterDelay],
+  standalone: false
 })
 export class NameBannerComponent implements OnInit {
   imgs: string[] = [
@@ -15,7 +16,11 @@ export class NameBannerComponent implements OnInit {
     '/assets/images/gallery/img3.jpg',
     '/assets/images/gallery/img4.jpg',
   ];
-  toggleGallery : boolean = true;
+  h2State = 'hidden';
+  nameState = 'hidden';
+  guideState = 'hidden';
+
+  toggleGallery: boolean = true;
   frameworks = [
     {
       title: 'Typescript',
@@ -28,7 +33,22 @@ export class NameBannerComponent implements OnInit {
       img: '/assets/images/frameworks/angular.png'
     },
   ];
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log("GWELL")
+
+
+
+
+    of(true).pipe(delay(500), tap(() => {
+      this.h2State = 'visible';
+    }), delay(500), tap(() => {
+      this.nameState = 'visible';
+    }), delay(500), tap(() => {
+      this.guideState = 'visible';
+    })).subscribe();
+
+
+  }
 }
