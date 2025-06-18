@@ -2,10 +2,11 @@ import { enterAnimation } from './../../animation/animation';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-name-banner',
-  templateUrl: './name-banner.component.html',
-  styleUrls: ['./name-banner.component.scss'],
-  animations : [enterAnimation]
+    selector: 'app-name-banner',
+    templateUrl: './name-banner.component.html',
+    styleUrls: ['./name-banner.component.scss'],
+    animations: [enterAnimation],
+    standalone: false
 })
 export class NameBannerComponent implements OnInit {
   imgs: string[] = [

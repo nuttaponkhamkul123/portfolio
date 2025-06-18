@@ -3,9 +3,10 @@ import { EnumPosition } from './model/nav-position.model';
 import { NavPositionService } from './nav-position.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    standalone: false
 })
 export class AppComponent {
   title = 'port-angular';
