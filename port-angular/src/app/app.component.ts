@@ -1,8 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { EnumPosition } from './model/nav-position.model';
 import { NavPositionService } from './nav-position.service';
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
 import { debounceTime, fromEvent, Subject, take, takeUntil } from 'rxjs';
 
 

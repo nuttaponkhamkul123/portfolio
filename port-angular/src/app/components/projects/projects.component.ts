@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { enterAnimation } from './../../animation/animation';
 import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
-import AOS from 'aos';
 
 
 @Component({
