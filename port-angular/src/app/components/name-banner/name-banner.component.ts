@@ -1,6 +1,6 @@
 import { delay, of, tap } from 'rxjs';
 import { enterAnimation, fadeAfterDelay } from './../../animation/animation';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-name-banner',
@@ -19,7 +19,7 @@ export class NameBannerComponent implements OnInit {
   h2State = 'hidden';
   nameState = 'hidden';
   guideState = 'hidden';
-
+  @Output() onStartTour = new EventEmitter();
   toggleGallery: boolean = true;
   frameworks = [
     {
@@ -33,10 +33,10 @@ export class NameBannerComponent implements OnInit {
       img: '/assets/images/frameworks/angular.png'
     },
   ];
-  constructor() { }
+  constructor(public el: ElementRef) { }
 
   ngOnInit(): void {
-    console.log("GWELL")
+    // console.log("GWELL")
 
 
 
@@ -50,5 +50,8 @@ export class NameBannerComponent implements OnInit {
     })).subscribe();
 
 
+  }
+  startTour(): void {
+    this.onStartTour.emit(true);
   }
 }

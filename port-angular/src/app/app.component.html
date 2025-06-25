@@ -1,8 +1,16 @@
-<div class="relative container" [ngClass]="{'vertical' : navPosition === enumPosition.VERTICAL }">
-  <div class="sticky nav" [ngClass]="{'vertical' : navPosition === enumPosition.VERTICAL }">
-    <app-navigation></app-navigation>
+<div class="relative container">
+  <div class="sticky nav">
+    <app-navigation [currentIndex]="currentIndex" (onNavigateIndex)="onNavigateIndex($event)"></app-navigation>
   </div>
-  <div class="contents" [ngClass]="{'vertical' : navPosition === enumPosition.VERTICAL }">
-    <router-outlet></router-outlet>
+
+  <div class="contents" (scroll)="onScroll($event)">
+    <app-name-banner #dop class="item" (onStartTour)="next()"></app-name-banner>
+    <app-projects #dop #proj class="item"></app-projects>
+    <app-profile #dop #prof class="item"></app-profile>
+    <div (click)="next()" style="position:fixed;bottom:0;right:0;"> ({{currentIndex}})down</div>
+
   </div>
+
+  <!-- </div> -->
+
 </div>

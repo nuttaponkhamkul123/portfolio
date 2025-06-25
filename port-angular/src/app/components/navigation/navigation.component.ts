@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, ElementRef, EventEmitter, HostListener, input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { faHouse, faNetworkWired, faCircleInfo, faAddressBook } from '@fortawesome/free-solid-svg-icons';
 import { Subject, take, takeUntil } from 'rxjs';
@@ -12,10 +12,12 @@ import { NavPositionService } from 'src/app/nav-position.service';
 })
 export class NavigationComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('indicator') indicator: ElementRef;
+  currentIndex = input(0);
+  @Output() onNavigateIndex = new EventEmitter();
   destroy$ = new Subject<void>();
   navPosition = EnumPosition.HORIZONTAL;
   enumPosition = EnumPosition;
-  currentIndex = { index: 0, path: '/home' }
+  // currentIndex = { index: 0, path: '/home' }
   listItems = [
     {
       index: 0,
@@ -46,10 +48,7 @@ export class NavigationComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   constructor(private router: Router, private navPositionService: NavPositionService) { }
-  @HostListener("window:resize", ['$event'])
-  onResize(event: any) {
-    this.navigateTo(this.currentIndex.path, this.currentIndex.index);
-  }
+
 
 
   ngOnInit(): void {
@@ -67,39 +66,14 @@ export class NavigationComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.navigateTo('/home', 0);
-    }, 100)
+    // setTimeout(() => {
+    //   this.navigateTo('/home', 0);
+    // }, 100)
   }
-  setNavPosition(): void {
 
-    this.navPositionService.setPosition(this.navPosition === EnumPosition.VERTICAL ? EnumPosition.HORIZONTAL : EnumPosition.VERTICAL);
-    this.navPositionService.getNavPosition().pipe(take(1)).subscribe(position => {
-      setTimeout(() => {
-        this.navigateTo(this.currentIndex.path, this.currentIndex.index);
-
-      }, 1)
-
-    })
-  }
   navigateTo(path: string, index: number): void {
 
-    const elements = document.querySelectorAll('.navigations > li');
-    const currentElement = elements[index] as HTMLElement;
-    this.currentIndex = { index, path };
-
-    console.log('currentElement.offsetLeft', currentElement.offsetLeft);
-    console.log('currentElement.offsetTop', currentElement.offsetTop);
-
-    if (this.navPosition === EnumPosition.HORIZONTAL) {
-      this.indicator.nativeElement.style.top = 0 + 'px';
-      this.indicator.nativeElement.style.left = currentElement.offsetLeft + 'px';
-    }
-    else {
-      this.indicator.nativeElement.style.left = 0 + 'px';
-      this.indicator.nativeElement.style.top = currentElement.offsetTop + 'px';
-    }
-    this.router.navigate([path]);
+    this.onNavigateIndex.emit(index);
   }
 
 }

@@ -1,14 +1,18 @@
+import { CommonModule } from '@angular/common';
 import { enterAnimation } from './../../animation/animation';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
+import AOS from 'aos';
+
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
   animations: [enterAnimation],
-  standalone: false
+  imports: [CommonModule],
+  standalone: true
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent implements OnInit, AfterViewInit {
   activeID = 0;
   projects = [
     {
@@ -29,7 +33,17 @@ export class ProjectsComponent implements OnInit {
     }
 
   ];
-  constructor() { }
+  constructor(public el: ElementRef) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    // console.log('PROJECT INITIAL')
+    setTimeout(() => {
+      AOS.init();
+
+    }, 3000)
+
+  }
+  ngAfterViewInit(): void {
+
+  }
 }

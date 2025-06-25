@@ -1,12 +1,17 @@
 <div>
 
 
-  <ul class="navigations"  [ngClass]="{'vertical' : navPosition === enumPosition.VERTICAL}">
-    <span class="indicator" #indicator ></span>
-      <ng-container  *ngFor="let listItem of listItems">
-        <li [routerLinkActive]="['tab-active']" (click)="navigateTo(listItem.path , listItem.index)"><a  ><fa-icon [icon]="listItem.icon"></fa-icon><span *ngIf="navPosition === enumPosition.VERTICAL" [ngClass]="{'vertical' : navPosition === enumPosition.VERTICAL}">{{listItem.elementId}}</span></a></li>
-      </ng-container>
+  <ul class="navigations" [ngClass]="{'vertical' : navPosition === enumPosition.VERTICAL}">
+    <!-- <span class="indicator" #indicator></span> -->
+    <ng-container *ngFor="let listItem of listItems">
+      <!-- [routerLinkActive]="['tab-active']" -->
+      <li (click)="navigateTo(listItem.path , listItem.index)"
+        [ngClass]="{ active : listItem.index === currentIndex()}">
+        <a><fa-icon [icon]="listItem.icon"></fa-icon><span *ngIf="navPosition === enumPosition.VERTICAL"
+            [ngClass]="{'vertical' : navPosition === enumPosition.VERTICAL}">{{listItem.elementId}}</span></a>
+      </li>
+    </ng-container>
 
   </ul>
-  <div class="switch-nav"><button (click)="setNavPosition()">switch nav</button></div>
+  <!-- <div class="switch-nav"><button (click)="setNavPosition()">switch nav</button></div> -->
 </div>

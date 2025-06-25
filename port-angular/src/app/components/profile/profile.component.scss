@@ -1,103 +1,116 @@
-.profile-container {
-  background: white;
-  padding: 20px;
-  margin: 20px;
+:host {
+  display: block;
+  height: 100%;
+  padding: 2rem 0px;
   box-sizing: border-box;
-  overflow-y: overlay;
-  border-radius: 8px;
-  box-shadow: 0px 0.5px 5px 0.5px;
+  overflow-y: hidden;
+  max-height: 100%;
+  overflow-y: scroll;
+  ;
+
+  .profile-container {
+    // background: white;
+    // padding: 20px;
+    margin: 20px;
+    box-sizing: border-box;
+    // overflow-y: overlay;
+    border-radius: 8px;
+    color: white;
+    // box-shadow: 0px 0.5px 5px 0.5px;
 
 
-  div {
-    .profile-img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      padding: 0.25rem;
-      box-shadow: 0px 1px 9px 0.5px;
-    }
-
-    .profile-name-section {
-      flex-grow: 1;
-      // padding-top: 2rem;
-      // padding-left: 1rem;
-
-      .profile-name {
-        font-size: 2rem;
+    div {
+      .profile-img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        padding: 0.25rem;
+        box-shadow: 0px 1px 9px 0.5px;
       }
 
-      .profile-position {
-        font-size: 1.1rem;
-        font-weight: 500;
+      .profile-name-section {
+        flex-grow: 1;
+        // padding-top: 2rem;
+        // padding-left: 1rem;
+
+        .profile-name {
+          font-size: 2rem;
+        }
+
+        .profile-position {
+          font-size: 1.1rem;
+          font-weight: 500;
+        }
+      }
+
+      .break {
+        flex-basis: 100%;
+        height: 0;
+      }
+
+      .profile-description {}
+    }
+
+    .title {
+      font-size: 1.5rem;
+
+      &.sm {
+        font-size: 1.25rem;
       }
     }
 
-    .break {
-      flex-basis: 100%;
-      height: 0;
-    }
+    .experience {
+      margin-top: 1%;
 
-    .profile-description {}
-  }
-
-  .title {
-    font-size: 1.5rem;
-
-    &.sm {
-      font-size: 1.25rem;
-    }
-  }
-
-  .experience {
-    margin-top: 1%;
-
-    .tasks {
-      margin-top: unset;
-      margin-block-start: 0.5em;
-    }
-  }
-
-  .education-section {
-    position: relative;
-    padding-top: 1%;
-
-
-
-    .education-graph {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-
-      // &:after {
-      //   content: '';
-      //   height: 50px;
-      // }
-
-      .edu-year {
-        // width: 100%;
-
+      .tasks {
+        margin-top: unset;
+        margin-block-start: 0.5em;
       }
+    }
 
-      .graph-container {
-        // padding-left: 30px;
-        position: relative;
-        display: block;
+    .education-section {
+      position: relative;
+      padding-top: 1%;
 
-        .edu-wrapper {
-          // display: flex;
-          // position: absolute;
 
-          .edu-box {
 
-            border-left: 1px solid;
-            border-bottom: 1px solid;
+      .education-graph {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        // &:after {
+        //   content: '';
+        //   height: 50px;
+        // }
+
+        .edu-year {
+          // width: 100%;
+
+        }
+
+        .graph-container {
+          // padding-left: 30px;
+          position: relative;
+          display: block;
+
+          .edu-wrapper {
+            // display: flex;
+            // position: absolute;
+
+            .edu-box {
+
+              border-left: 1px solid;
+              border-bottom: 1px solid;
+            }
+
+            .branch {}
+
+
           }
-
-          .branch {}
-
-
         }
       }
     }
   }
+
 }

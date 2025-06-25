@@ -1,12 +1,17 @@
-<div class="banner-container containers" @enterAnimation>
+<div class="banner-container containers">
+  <!-- data-aos="fade-right" -->
+  <!-- @enterAnimation -->
   <div class="banner">
     <div>
+      <!-- [@fadeAfterDelay]="h2State" -->
       <h2 [@fadeAfterDelay]="h2State">Hello</h2>
 
     </div>
+    <!-- [@fadeAfterDelay]="nameState" -->
     <h1 [@fadeAfterDelay]="nameState">Nuttapon Khamkul</h1>
     <!-- Website for education purpose -->
-    <div role="button" class="start-guide" [@fadeAfterDelay]="guideState">Start Tour</div>
+    <!-- [@fadeAfterDelay]="guideState" -->
+    <div [@fadeAfterDelay]="guideState" role="button" class="start-guide" (click)="startTour()">Start Tour</div>
   </div>
   <!-- <div class="gallery">
     <div class="image-wrapper" [ngClass]="{ active: toggleGallery }">

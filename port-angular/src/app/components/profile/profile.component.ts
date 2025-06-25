@@ -1,5 +1,5 @@
 import { enterAnimation } from 'src/app/animation/animation';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { SkillsComponent } from './skills/skills.component';
 import { CommonModule } from '@angular/common';
 
@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(public el: ElementRef) { }
 
   ngOnInit(): void {
   }

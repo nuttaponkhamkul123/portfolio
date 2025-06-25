@@ -1,58 +1,67 @@
-.skills-wrapper {
-    margin-top: 1%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2em;
+:host {
 
-    .skill-section {
-        .skill-section-title {
-            font-size: 1.5rem;
-        }
 
-        .skill {
-            width: 100%;
-            white-space: nowrap;
-            column-count: 2;
-            justify-content: space-between;
+    .skills-wrapper {
+        color: white;
+        margin-top: 1%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2em;
 
-            .skill-container {
-                display: flex;
-                margin-top: 1rem;
-                margin-bottom: 1rem;
+        .skill-section {
+            .skill-section-title {
+                font-size: 1.5rem;
+            }
 
-                .skill-title {
-                    flex-grow: 1;
+            .skill {
+                width: 100%;
+                white-space: nowrap;
+                column-count: 2;
+                justify-content: space-between;
 
-                }
+                .skill-container {
+                    display: flex;
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
 
-                .skill-gauge {
-                    // flex-grow: 1;
-                    // display:inline-block;
-                    width: 60%;
-                    background-color: rgb(126, 126, 129);
-                    height: 1rem;
-                    position: relative;
-
-                    .skill-gauge-power {
-                        content: '';
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        background-color: rgb(253, 59, 91);
-                        height: 100%;
+                    .skill-title {
+                        flex-grow: 1;
 
                     }
-                }
 
-                .skill-description {
-                    width: 90%;
-                }
+                    .skill-gauge {
+                        // flex-grow: 1;
+                        // display:inline-block;
+                        width: 60%;
+                        background-color: rgb(126, 126, 129);
+                        height: 1rem;
+                        position: relative;
 
-                .social-link {
-                    text-decoration: none;
-                    color: rgb(0, 0, 0);
+                        .skill-gauge-power {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            background-color: rgb(253, 59, 91);
+                            height: 100%;
+
+                        }
+                    }
+
+                    .skill-description {
+                        width: 90%;
+                    }
+
+
                 }
             }
         }
+
+        .social-link {
+            text-decoration: none;
+            color: white;
+            // color: rgb(0, 0, 0);
+        }
     }
+
 }
