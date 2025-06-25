@@ -35,11 +35,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   constructor(public el: ElementRef) { }
 
   ngOnInit(): void {
-    // console.log('PROJECT INITIAL')
-    setTimeout(() => {
-      AOS.init();
 
-    }, 3000)
 
   }
   ngAfterViewInit(): void {
