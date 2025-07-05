@@ -5,11 +5,11 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 
 const routes: Routes = [
-  { path : '' ,redirectTo : '/home' ,pathMatch:'full'},
-  { path: 'home', component: NameBannerComponent },
-  { path: 'projects', component: ProjectsComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'contact', component: ProfileComponent },
+  { path: '', redirectTo: '', pathMatch: 'full' },
+  // { path: 'home', component: NameBannerComponent },
+  // { path: 'projects', component: ProjectsComponent },
+  // { path: 'profile', component: ProfileComponent },
+  // { path: 'contact', component: ProfileComponent },
 ];
 
 @NgModule({
@@ -22,4 +22,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
