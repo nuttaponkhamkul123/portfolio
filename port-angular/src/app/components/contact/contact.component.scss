@@ -1,0 +1,120 @@
+:host {
+    display: block;
+    height: 100%;
+
+    /*
+ * Modern Dark Theme for Contact Form
+ * This style integrates the form with a dark or gradient background.
+ */
+
+    .contact-container {
+        /* Set a max-width and center the form in the available space */
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 2rem;
+
+        /* Use a semi-transparent dark background to create a "glass" effect */
+        background: rgba(15, 15, 15, 0.25);
+        backdrop-filter: blur(10px);
+        /* Creates a frosted glass look (optional, but cool) */
+        -webkit-backdrop-filter: blur(10px);
+        /* Safari support */
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Style for the "Contact Me" header */
+    h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #ffffff;
+        /* White text for high contrast */
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+        font-weight: 300;
+        /* Lighter font weight for a modern look */
+    }
+
+    /* Container for each label-input pair */
+    .form-group {
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+
+    /* Style for the labels (Name, Email, Message) */
+    label {
+        display: block;
+        color: rgba(255, 255, 255, 0.7);
+        /* Slightly transparent white */
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    /* Common style for text inputs and textarea */
+    .form-control {
+        width: 100%;
+        padding: 10px 0;
+        /* Padding only on top/bottom */
+        font-size: 1rem;
+        color: #ffffff;
+        /* White input text */
+
+        /* Remove default browser appearance */
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        /* Underline effect */
+        outline: none;
+        /* Remove the default focus outline */
+        transition: border-color 0.3s ease;
+        /* Smooth transition for focus */
+    }
+
+    /* Change border color when the user clicks on an input */
+    .form-control:focus {
+        border-bottom-color: #ffffff;
+    }
+
+    /* Style for the textarea to give it more height */
+    textarea.form-control {
+        min-height: 100px;
+        resize: vertical;
+        /* Allow vertical resizing */
+    }
+
+    /* Style for validation error messages */
+    .error {
+        color: #ff5252;
+        /* A bright, visible red for errors */
+        font-size: 0.875rem;
+        margin-top: 6px;
+    }
+
+    /* Style for the submit button */
+    .submit-btn {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        background-color: #ffffff;
+        /* White button */
+        color: #111111;
+        /* Dark text */
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-top: 1rem;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    /* Button hover effect */
+    .submit-btn:hover {
+        transform: translateY(-2px);
+        /* Slight lift effect */
+        background-color: #f0f0f0;
+        /* Slightly darker on hover */
+    }
+
+}

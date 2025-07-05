@@ -4,85 +4,116 @@
   padding: 2rem;
   box-sizing: border-box;
 
+
+  /* Main heading for the page */
   .heading-title {
-    margin: 0 !important;
-    padding-top: 32px;
-    padding-bottom: 10px;
-    color: white;
-    font-size: 4rem;
-    font-weight: 400;
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 3rem;
   }
 
+  /* Container for all the project cards */
   .projects {
-    padding-left: 2rem;
-    // display: flex;
-    // align-items: center;
-    // max-width: 85%;
-    padding-top: 3%;
+    display: grid;
+    gap: 2rem;
+    /* Space between cards */
+  }
 
+  /* CARD STYLING 
+  This is the core of the new design.
+*/
+  .project-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Subtle dark background */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  /* INTERACTIVE HOVER & ACTIVE EFFECT
+  This uses your existing [ngClass] logic.
+*/
+  .project-item:hover,
+  .project-item.active {
+    transform: translateY(-8px) scale(1.02);
+    /* Lift and slightly enlarge the card */
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: #3498db;
+    /* Use your blue accent color */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Style for the project thumbnail */
+  .project-item img {
+    width: 200px;
+    /* Or your preferred size */
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  /*
+  TYPOGRAPHY & CONTENT
+*/
+  .projects {
     display: flex;
     flex-flow: column;
-    // justify-content: space-around;
-    // flex-wrap: wrap;
-    gap: 1rem;
-    // overflow-x: scroll;
-    position: relative;
+    gap: 16px;
 
-    &::-webkit-scrollbar-track {
-      background: red;
+    .project-desc {
+      flex: 1;
+
+      ;
     }
 
-    .project-item {
-      border-radius: 8px;
-      // overflow: hidden;
-      // border: 1px solid #c6c5c5;
-      // flex: 1 1 0px;
-      position: relative;
+    .proj-thumb {
+      display: block;
+    }
+
+    .proj-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .proj-desc {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+    }
+
+    /* CALL TO ACTION BUTTONS (Optional but Recommended)
+  Add these inside your .project-desc div.
+*/
+    .project-links {
+      margin-top: 1rem;
       display: flex;
-      cursor: pointer;
-      // top: 0;
-      // left: 50%;
-      padding: 1rem;
-      transition: background-color 200ms ease-in-out;
-
-      &:hover {
-        background: #8c8c8c;
-      }
-
-      img {
-        display: block;
-        width: 200px;
-        height: 150px;
-        flex: 1 0 200px;
-        border-radius: 8px;
-        // flex: 1 0 25vw;
-        transition: transform 100ms ease-in-out;
-        box-shadow: 4px 4px 3px rgba(20, 20, 20, 0.5);
-      }
-
-
-
-
-      .project-desc {
-        // background-color: rgba($color: #000000, $alpha: 0.2);
-        color: rgba($color: #f5f3f3, $alpha: 1);
-        padding: 1rem;
-        font-size: 10px;
-        // height: 80px;
-
-        width: 100%;
-
-        .proj-title {
-          font-size: 2rem;
-          font-weight: 300;
-        }
-
-        .proj-desc {
-          font-size: 1.5rem;
-          font-weight: 100;
-        }
-      }
+      gap: 1rem;
     }
+
+    .cta-link {
+      color: #3498db;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 6px 12px;
+      border: 1px solid rgba(52, 152, 219, 0.5);
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .cta-link:hover {
+      background-color: #3498db;
+      color: #ffffff;
+    }
+
   }
 
 }

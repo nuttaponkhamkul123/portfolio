@@ -4,9 +4,10 @@
   </div>
 
   <div class="contents" (scroll)="onScroll($event)">
-    <app-name-banner #dop class="item" (onStartTour)="next()"></app-name-banner>
-    <app-projects #dop #proj class="item"></app-projects>
-    <app-profile #dop #prof class="item"></app-profile>
+    <app-name-banner #cmps class="item" (onStartTour)="next()"></app-name-banner>
+    <app-projects #cmps #proj class="item"></app-projects>
+    <app-profile #cmps #prof class="item"></app-profile>
+    <app-contact #cmps class="item"></app-contact>
     <div (click)="next()" style="position:fixed;bottom:0;right:0;"> ({{currentIndex}})down</div>
 
   </div>

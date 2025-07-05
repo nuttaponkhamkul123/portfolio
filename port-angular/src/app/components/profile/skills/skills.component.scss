@@ -1,67 +1,102 @@
 :host {
+    /*
+ * Elegant & Modern Skills Section Styling
+ */
 
-
+    /* Main container for all skill sections */
     .skills-wrapper {
-        color: white;
-        margin-top: 1%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2em;
-
-        .skill-section {
-            .skill-section-title {
-                font-size: 1.5rem;
-            }
-
-            .skill {
-                width: 100%;
-                white-space: nowrap;
-                column-count: 2;
-                justify-content: space-between;
-
-                .skill-container {
-                    display: flex;
-                    margin-top: 1rem;
-                    margin-bottom: 1rem;
-
-                    .skill-title {
-                        flex-grow: 1;
-
-                    }
-
-                    .skill-gauge {
-                        // flex-grow: 1;
-                        // display:inline-block;
-                        width: 60%;
-                        background-color: rgb(126, 126, 129);
-                        height: 1rem;
-                        position: relative;
-
-                        .skill-gauge-power {
-                            content: '';
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            background-color: rgb(253, 59, 91);
-                            height: 100%;
-
-                        }
-                    }
-
-                    .skill-description {
-                        width: 90%;
-                    }
-
-
-                }
-            }
-        }
-
-        .social-link {
-            text-decoration: none;
-            color: white;
-            // color: rgb(0, 0, 0);
-        }
+        width: 100%;
     }
 
+    /* Style for each section (Programming, Other, Social) */
+    .skill-section {
+        margin-bottom: 3rem;
+        /* Adds space between each section */
+    }
+
+    /* Title for each section (e.g., "Programing skills") */
+    .skill-section-title {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #ffffff;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        /* A subtle border to match the main profile titles */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* This is the flex container that holds all the skill tags */
+    .skill {
+        display: flex;
+        flex-wrap: wrap;
+        /* Allows skills to wrap to the next line on smaller screens */
+        gap: 12px;
+        /* Defines the space between each skill tag */
+    }
+
+    /*
+   * INDIVIDUAL SKILL TAG STYLING
+   * This creates the "pill" or "tag" effect.
+   */
+    .skill-container {
+        display: inline-flex;
+        /* Use flex to align items inside */
+        align-items: center;
+        gap: 8px;
+        /* Space between icon and text, if any */
+        background-color: rgba(255, 255, 255, 0.05);
+        /* Very subtle background */
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        /* This creates the pill shape */
+        padding: 8px 16px;
+        transition: all 0.3s ease;
+        /* Smooth transition for hover effects */
+    }
+
+    /* Hover effect for the skill tags */
+    .skill-container:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-color: #3498db;
+        /* Use the blue accent color on hover */
+        transform: translateY(-2px);
+        /* Slight lift effect */
+        cursor: default;
+        /* Change cursor to indicate it's not clickable */
+    }
+
+    /* The text inside the skill tag */
+    .skill-title {
+        color: #e0e0e0;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    /*
+   * SOCIAL MEDIA SECTION - SPECIFIC STYLES
+   */
+
+    /* The text description next to a social icon */
+    .skill-description {
+        font-size: 0.9rem;
+    }
+
+    /* Styling for the social media links */
+    .social-link {
+        color: #e0e0e0;
+        text-decoration: none;
+        /* Remove default underline */
+        transition: color 0.3s ease;
+    }
+
+    /* Change link color on hover */
+    .social-link:hover {
+        color: #3498db;
+        /* Highlight with the blue accent color */
+    }
+
+    /* Ensure SVGs inside skill-titles are aligned correctly */
+    .skill-title svg {
+        display: block;
+    }
 }

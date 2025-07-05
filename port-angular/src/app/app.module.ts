@@ -9,10 +9,11 @@ import { ProjectsComponent } from './components/projects/projects.component';
 // import { ProfileComponent } from './components/profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent, NameBannerComponent],
-  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, BrowserAnimationsModule, ProjectsComponent, ProfileComponent],
+  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, BrowserAnimationsModule, ProjectsComponent, ProfileComponent, ContactComponent],
   providers: [],
   bootstrap: [AppComponent],
 })

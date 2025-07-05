@@ -17,7 +17,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   currentIndex = 0;
   @ViewChild('prof') prof!: ElementRef;
   @ViewChild('proj') proj!: ElementRef;
-  @ViewChildren('dop') cmps!: QueryList<any>;
+  @ViewChildren('cmps') cmps!: QueryList<any>;
   destroy$ = new Subject<boolean>();
   constructor(private navPositionService: NavPositionService) { }
 
@@ -43,7 +43,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   }
   next(): void {
 
-
+    console.log('this.cmps', this.cmps)
     if (this.currentIndex + 1 > this.cmps.length - 1) {
       return;
     }

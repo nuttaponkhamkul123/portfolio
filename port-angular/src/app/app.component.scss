@@ -13,7 +13,7 @@
   flex-direction: column;
   max-height: 100vh;
   flex-direction: row;
-  background: linear-gradient(0deg, #000000, #f07167);
+  background: linear-gradient(to bottom, #102a43, #0a192f);
   background-size: 120% 120%;
   animation: gradient-animation 2s ease infinite;
 
@@ -23,6 +23,7 @@
     // padding: 3rem;
     overflow-y: auto;
     position: relative;
+    flex: 1;
     // max-height: 100vh;
     box-sizing: border-box;
     scroll-snap-type: y mandatory;

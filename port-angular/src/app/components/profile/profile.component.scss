@@ -6,111 +6,154 @@
   overflow-y: hidden;
   max-height: 100%;
   overflow-y: scroll;
-  ;
+  width: 100%;
+
+  /*
+ * Modern Horizontal (Two-Column) Profile & Resume Styling
+ */
 
   .profile-container {
-    // background: white;
-    // padding: 20px;
-    margin: 20px;
-    box-sizing: border-box;
-    // overflow-y: overlay;
-    border-radius: 8px;
-    color: white;
-    // box-shadow: 0px 0.5px 5px 0.5px;
-
-
-    div {
-      .profile-img {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        padding: 0.25rem;
-        box-shadow: 0px 1px 9px 0.5px;
-      }
-
-      .profile-name-section {
-        flex-grow: 1;
-        // padding-top: 2rem;
-        // padding-left: 1rem;
-
-        .profile-name {
-          font-size: 2rem;
-        }
-
-        .profile-position {
-          font-size: 1.1rem;
-          font-weight: 500;
-        }
-      }
-
-      .break {
-        flex-basis: 100%;
-        height: 0;
-      }
-
-      .profile-description {}
-    }
-
-    .title {
-      font-size: 1.5rem;
-
-      &.sm {
-        font-size: 1.25rem;
-      }
-    }
-
-    .experience {
-      margin-top: 1%;
-
-      .tasks {
-        margin-top: unset;
-        margin-block-start: 0.5em;
-      }
-    }
-
-    .education-section {
-      position: relative;
-      padding-top: 1%;
-
-
-
-      .education-graph {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-
-        // &:after {
-        //   content: '';
-        //   height: 50px;
-        // }
-
-        .edu-year {
-          // width: 100%;
-
-        }
-
-        .graph-container {
-          // padding-left: 30px;
-          position: relative;
-          display: block;
-
-          .edu-wrapper {
-            // display: flex;
-            // position: absolute;
-
-            .edu-box {
-
-              border-left: 1px solid;
-              border-bottom: 1px solid;
-            }
-
-            .branch {}
-
-
-          }
-        }
-      }
-    }
+    // max-width: 1200px;
+    /* Widen the container for a horizontal layout */
+    margin: 2rem auto;
+    padding: 2rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #e0e0e0;
   }
 
+  /* === TOP PROFILE HEADER === */
+  .relative.flex {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .profile-name-section {
+    flex-grow: 1;
+  }
+
+  .profile-name {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+  .profile-position {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-bottom: 1.5rem;
+  }
+
+  .profile-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+
+  /* === HORIZONTAL CONTENT LAYOUT === */
+  .main-content {
+    display: flex;
+    flex-direction: row;
+    /* Arrange children side-by-side */
+    gap: 3rem;
+    /* Space between the left and right columns */
+    align-items: flex-start;
+    /* Align columns to the top */
+  }
+
+  /* The left column (Experience) will take up more space */
+  .experience {
+    flex: 2;
+    /* Takes up 2 parts of the available space */
+    min-width: 0;
+    /* Prevents flexbox overflow issues */
+  }
+
+  /* The right column will hold Education and Skills */
+  .right-column {
+    flex: 1;
+    /* Takes up 1 part of the available space */
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    /* Space between Education and Skills sections */
+    min-width: 0;
+  }
+
+  /* === SHARED STYLES FOR SECTIONS === */
+
+  /* Common style for section titles (Experiences, Education) */
+  .title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #3498db;
+    display: inline-block;
+  }
+
+  .title.sm {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    margin-bottom: 0.25rem;
+  }
+
+  /* Dates for Experience */
+  .experience>div>div:nth-of-type(2) {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  /* List of tasks styling */
+  ul.tasks {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  ul.tasks li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  ul.tasks li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #3498db;
+    font-weight: bold;
+  }
+
+  /* Education section card */
+  .education-graph .graph-container {
+    padding: 1.5rem;
+    background: rgba(15, 15, 15, 0.25);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .branch {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
 }

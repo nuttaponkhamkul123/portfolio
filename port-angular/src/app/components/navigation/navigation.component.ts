@@ -39,7 +39,7 @@ export class NavigationComponent implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       index: 3,
-      elementId: 'contact',
+      elementId: 'Contact',
       path: '/contact',
       icon: faAddressBook
     }
