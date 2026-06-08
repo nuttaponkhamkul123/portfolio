@@ -1,31 +1,39 @@
+import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-
+import { ContactService, ContactRequest } from 'src/app/services/contact.service';
+import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-contact',
-  imports: [ReactiveFormsModule
-  ],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss'
+  styleUrls: ['./contact.component.scss'],
+  standalone : true,
+  imports: [ReactiveFormsModule, CommonModule, RecaptchaModule, RecaptchaFormsModule]
 })
 export class ContactComponent implements OnInit {
-
   contactForm!: FormGroup;
   isSubmitted = false;
-  constructor(public el: ElementRef, private fb: FormBuilder) { }
+  isLoading = false;
+  siteKey = environment.recaptcha.siteKey;
 
-
+  constructor(
+    private formBuilder: FormBuilder,
+    private contactService: ContactService,
+    public el: ElementRef
+  ) { }
 
   ngOnInit(): void {
-    this.contactForm = this.fb.group({
+    this.contactForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      message: ['', [Validators.required, Validators.minLength(10)]]
+      message: ['', [Validators.required, Validators.minLength(10)]],
+      recaptchaToken: ['', Validators.required]
     });
   }
 
-  // Getter for easy access to form controls in the template
+  // Convenience getter for easy access to form fields in the template
   get formControls() {
     return this.contactForm.controls;
   }
@@ -33,16 +41,25 @@ export class ContactComponent implements OnInit {
   onSubmit(): void {
     this.isSubmitted = true;
 
-    if (this.contactForm.invalid) {
+    if (this.contactForm.invalid || this.isLoading) {
       return;
     }
 
-    console.log('Form Submitted!', this.contactForm.value);
-    // Here you would typically send the form data to a backend service
-    // For example: this.http.post('api/contact', this.contactForm.value).subscribe();
+    this.isLoading = true;
+    const formData: ContactRequest = this.contactForm.value;
 
-    alert('Thank you for your message!');
-    this.contactForm.reset();
-    this.isSubmitted = false;
+    this.contactService.sendEmail(formData).subscribe({
+      next: () => {
+        alert('Message sent successfully!');
+        this.contactForm.reset();
+        this.isSubmitted = false;
+      },
+      error: () => {
+        alert('Failed to send message. Please try again later.');
+      },
+      complete: () => {
+        this.isLoading = false;
+      }
+    });
   }
 }
