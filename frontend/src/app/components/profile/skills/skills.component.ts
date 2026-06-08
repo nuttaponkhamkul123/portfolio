@@ -54,6 +54,23 @@ export class SkillsComponent implements OnInit {
       title: 'Joi',
       power: 10
     },
+    {
+      title: 'SAP UI5',
+      power: 10
+    },
+    {
+      title: 'SAP CAP',
+      power: 30
+    },
+    {
+      title: 'SAP RAP',
+      power: 30
+    },
+    {
+      title: 'NextJS',
+      power: 5
+    },
+
   ]
   other_skill = [
     {

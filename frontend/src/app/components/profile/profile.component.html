@@ -3,7 +3,7 @@
     <!-- <img class="profile-img" src="./assets/images/profile/profile.jpg" alt="" /> -->
     <div class="profile-name-section">
       <div class="profile-name">Nuttapon Khamkul</div>
-      <div class="profile-position">Junior full-stack developer</div>
+      <div class="profile-position">Full-stack developer</div>
       <hr />
       <div class="profile-description">
         I have a strong interest in web development and enjoy solving technical issues related to websites and computer
@@ -15,52 +15,80 @@
     </div>
   </div>
 
-  <div class="experience">
-    <div class="title">Experiences</div>
-    <div>
-      <div class="title sm">ITOPPLUS</div>
-      <div>NOVEMBER 2021 - PRESENT</div>
-      <div>
-        Full stack developer
+  <div class="main-content">
+    <div class="experience">
+      <div class="title">Experiences</div>
+
+      <!-- Avally (Thailand) Co. Ltd -->
+      <div style="margin-bottom: 2.5rem;">
+        <div class="title sm">Avally (Thailand) Co. Ltd</div>
+        <div>JULY 2025 - PRESENT</div>
+        <div>
+          Full stack developer
+        </div>
+        <div>
+          <ul class="tasks">
+            <li>Developed as SAP BTP Developer</li>
+            <li>Developed and maintained fiori-based applications using SAP UI 5, SAP CAP and SAP RAP</li>
+            <li>Integrated SAP BTP with other SAP systems (e.g., SAP S/4HANA) to enable seamless data flow and
+              process automation.</li>
+            <li>Training consultant about SAP BTP and related technologies to customers and partners</li>
+            <li>Optimized and refactored legacy fiori applications</li>
+            <li>Maintained CI/CD pipeline and deployment process for fiori applications using SAP Cloud foundry</li>
+            <li>Managed external app for integrating with SAP S4/Hana using NextJS</li>
+          </ul>
+        </div>
       </div>
+
+      <!-- ITOPPLUS -->
       <div>
-        <ul class="tasks">
-          <li>Developed an Angular-based content management system.</li>
-          <li>Conducted bug tracing and proficiently debugged issues.</li>
-          <li>Implemented an Observable Approach to enhance asynchronous event handling, effectively resolving race
-            condition
-            problems in the project.</li>
-          <li>Developed a preprocessing component to generate HTML templates using a templating engine such as Nunjucks.
-            Identified and implemented solutions to enhance website performance.</li>
-          <li>Successfully refactored inefficient code and eliminated bad practices within the project.</li>
-          <li>Experience with asset management using the Google Ads API.</li>
-          <li>Prompt tuning and implementing LangChain (mostly LLM API) to connect with Large Language Models (LLMs)
-            such as Claude and
-            Google Gemini</li>
-        </ul>
+        <div class="title sm">ITOPPLUS</div>
+        <div>NOVEMBER 2021 - JULY 2025</div>
+        <div>
+          Full stack developer
+        </div>
+        <div>
+          <ul class="tasks">
+            <li>Developed an Angular-based content management system.</li>
+            <li>Conducted bug tracing and proficiently debugged issues.</li>
+            <li>Implemented an Observable Approach to enhance asynchronous event handling, effectively resolving race
+              condition
+              problems in the project.</li>
+            <li>Developed a preprocessing component to generate HTML templates using a templating engine such as
+              Nunjucks.
+              Identified and implemented solutions to enhance website performance.</li>
+            <li>Successfully refactored inefficient code and eliminated bad practices within the project.</li>
+            <li>Experience with asset management using the Google Ads API.</li>
+            <li>Prompt tuning and implementing LangChain (mostly LLM API) to connect with Large Language Models (LLMs)
+              such as Claude and
+              Google Gemini</li>
+          </ul>
+        </div>
       </div>
 
     </div>
-  </div>
 
 
-  <div class="education-section">
-    <div class="title">Education</div>
-    <div class="education-graph">
+    <div class="right-column">
+      <div class="education-section">
+        <div class="title">Education</div>
+        <div class="education-graph">
 
-      <div class="graph-container">
-        <div class="title sm">Thammasat University | 2016-2020 </div>
-        <div class="branch">
-          B.S. in Computer Science
+          <div class="graph-container">
+            <div class="title sm">Thammasat University | 2016-2020 </div>
+            <div class="branch">
+              B.S. in Computer Science
+
+            </div>
+
+          </div>
+
 
         </div>
 
+
       </div>
-
-
+      <app-skills></app-skills>
     </div>
-
-
   </div>
-  <app-skills></app-skills>
 </div>
