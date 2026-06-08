@@ -51,8 +51,12 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     // console.log('this.currentIndex',);
   }
   navigate(index: number): void {
-    (this.cmps.get(index > -1 ? index : this.currentIndex)?.el as any)?.nativeElement.scrollIntoView({ behavior: "smooth" })
-
+    const target = this.cmps.get(index > -1 ? index : this.currentIndex);
+    // Safely resolve the native element whether it's directly on the ref or nested in 'el'
+    const element = target?.el?.nativeElement || target?.nativeElement;
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
   }
 
   onScroll(e: Event): void {
@@ -66,16 +70,22 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   checkActiveSection() {
+    if (!this.cmps || this.cmps.length === 0) {
+      return;
+    }
+
     const windowHeight = window.innerHeight || document.documentElement.clientHeight;
     let foundActive = false;
 
     this.cmps.forEach((sectionRef, index) => {
-      const rect = sectionRef.el.nativeElement.getBoundingClientRect();
+      const element = sectionRef?.el?.nativeElement || sectionRef?.nativeElement;
+      if (!element) return;
 
-      if (rect.top >= 0 && rect.top < windowHeight / 2) { // Top of element is visible and within top half of viewport
+      const rect = element.getBoundingClientRect();
+      if (rect.top >= 0 && rect.top < windowHeight / 2) {
         this.currentIndex = index;
         foundActive = true;
-      } else if (rect.bottom > windowHeight / 2 && rect.bottom <= windowHeight) { // Bottom of element is visible and within bottom half of viewport
+      } else if (rect.bottom > windowHeight / 2 && rect.bottom <= windowHeight) {
         this.currentIndex = index;
         foundActive = true;
       }
@@ -85,9 +95,9 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     if (!foundActive && this.cmps.length > 0) {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       if (scrollTop === 0) {
-        this.currentIndex = this.cmps.first.nativeElement.id;
+        this.currentIndex = 0;
       } else if (scrollTop + windowHeight >= document.documentElement.scrollHeight - 1) {
-        this.currentIndex = this.cmps.last.nativeElement.id;
+        this.currentIndex = this.cmps.length - 1;
       } else {
         this.currentIndex = -1; // Or some default state
       }

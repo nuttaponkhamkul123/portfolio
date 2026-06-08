@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { NameBannerComponent } from './components/name-banner/name-banner.component';
@@ -13,7 +14,16 @@ import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent, NameBannerComponent],
-  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, BrowserAnimationsModule, ProjectsComponent, ProfileComponent, ContactComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    ProjectsComponent,
+    ProfileComponent,
+    ContactComponent
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
