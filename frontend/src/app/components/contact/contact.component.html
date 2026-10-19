@@ -1,42 +1,145 @@
-<div class="contact-container">
-    <h2>Contact Me</h2>
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" formControlName="name" class="form-control">
-            <div *ngIf="isSubmitted && formControls['name'].errors" class="error">
-                <div *ngIf="formControls['name'].errors['required']">Name is required.</div>
+<div class="contact-wrapper">
+  <!-- Section Header -->
+  <div class="contact-header">
+    <div class="section-tag-row">
+      <div class="section-tag">// TRANSMISSION CHANNEL</div>
+      <div class="avail-badge">
+        <span class="status-dot"></span> AVAILABLE FOR NEW OPPORTUNITIES
+      </div>
+    </div>
+    <h1 class="heading-title">Initiate Connection</h1>
+    <p class="heading-subtitle">
+      Have an enterprise project to build, SAP BTP architecture to design, or looking for a full-stack engineer? Drop a transmission below or reach out directly.
+    </p>
+  </div>
+
+  <!-- 2-Column Split Layout -->
+  <div class="contact-grid">
+    <!-- Left Column: Direct Channels & Telemetry Intel -->
+    <div class="contact-intel">
+      <!-- Intel Card 1: Direct Channels -->
+      <div class="intel-card channels-card">
+        <div class="intel-card-title">// DIRECT CHANNELS</div>
+        
+        <div class="channel-list">
+          <div class="channel-item" (click)="copyEmail()" title="Click to copy email">
+            <div class="channel-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
             </div>
+            <div class="channel-details">
+              <span class="channel-label">Direct Email</span>
+              <span class="channel-val">nuttapon.khamkul&#64;avally.co.jp</span>
+            </div>
+            <span class="copy-badge" [class.copied]="copiedEmail">{{ copiedEmail ? 'Copied ✓' : 'Copy' }}</span>
+          </div>
+
+          <a href="https://github.com/nuttaponkhamkul123/" target="_blank" rel="noopener noreferrer" class="channel-item channel-link">
+            <div class="channel-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+            </div>
+            <div class="channel-details">
+              <span class="channel-label">GitHub Repository</span>
+              <span class="channel-val">github.com/nuttaponkhamkul123</span>
+            </div>
+            <svg class="external-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+
+          <a href="https://www.facebook.com/NutthaponKhamkul/" target="_blank" rel="noopener noreferrer" class="channel-item channel-link">
+            <div class="channel-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </div>
+            <div class="channel-details">
+              <span class="channel-label">Social Profile</span>
+              <span class="channel-val">Nutthapon Khamkul</span>
+            </div>
+            <svg class="external-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Intel Card 2: Operating Parameters & Telemetry -->
+      <div class="intel-card meta-card">
+        <div class="intel-card-title">// TELEMETRY & SPECS</div>
+        <div class="meta-row">
+          <div class="meta-item">
+            <span class="meta-label">LOCATION</span>
+            <span class="meta-val">Bangkok, TH (UTC+7)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">AVG RESPONSE</span>
+            <span class="meta-val">&lt; 24 Hours</span>
+          </div>
+        </div>
+        <div class="meta-divider"></div>
+        <p class="meta-note">
+          Specializing in enterprise SAP BTP (RAP / CAP / Fiori) development, high-scale Angular reactive frontends, and robust full-stack cloud integrations.
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Column: Glassmorphic Message Terminal -->
+    <div class="contact-terminal">
+      <div class="terminal-bar">
+        <div class="terminal-dots">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+        </div>
+        <span class="terminal-title">dispatch_message.sh</span>
+        <span class="terminal-enc">ENCRYPTED [SSL]</span>
+      </div>
+
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="terminal-form">
+        <div class="form-group">
+          <label for="name"><span class="field-index">01</span> SENDER NAME</label>
+          <input type="text" id="name" formControlName="name" class="form-control" placeholder="e.g. Alexander Vance">
+          <div *ngIf="isSubmitted && formControls['name'].errors" class="error">
+            <div *ngIf="formControls['name'].errors['required']">Name is required.</div>
+          </div>
         </div>
 
         <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" formControlName="email" class="form-control">
-            <div *ngIf="isSubmitted && formControls['email'].errors" class="error">
-                <div *ngIf="formControls['email'].errors['required']">Email is required.</div>
-                <div *ngIf="formControls['email'].errors['email']">Please enter a valid email address.</div>
-            </div>
+          <label for="email"><span class="field-index">02</span> RETURN EMAIL</label>
+          <input type="email" id="email" formControlName="email" class="form-control" placeholder="e.g. alexander@enterprise.com">
+          <div *ngIf="isSubmitted && formControls['email'].errors" class="error">
+            <div *ngIf="formControls['email'].errors['required']">Email is required.</div>
+            <div *ngIf="formControls['email'].errors['email']">Please enter a valid email address.</div>
+          </div>
         </div>
 
         <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" formControlName="message" class="form-control"></textarea>
-            <div *ngIf="isSubmitted && formControls['message'].errors" class="error">
-                <div *ngIf="formControls['message'].errors['required']">A message is required.</div>
-                <div *ngIf="formControls['message'].errors['minlength']">The message must be at least 10 characters long.
-                </div>
-            </div>
+          <label for="message"><span class="field-index">03</span> MESSAGE / PROJECT SCOPE</label>
+          <textarea id="message" formControlName="message" class="form-control" placeholder="Describe your project, architectural requirements, or inquiry..."></textarea>
+          <div *ngIf="isSubmitted && formControls['message'].errors" class="error">
+            <div *ngIf="formControls['message'].errors['required']">A message is required.</div>
+            <div *ngIf="formControls['message'].errors['minlength']">The message must be at least 10 characters long.</div>
+          </div>
         </div>
 
-        <div class="form-group">
-            <re-captcha formControlName="recaptchaToken" [siteKey]="siteKey"></re-captcha>
-            <div *ngIf="isSubmitted && formControls['recaptchaToken'].errors" class="error">
-                <div *ngIf="formControls['recaptchaToken'].errors['required']">Please verify that you are not a robot.</div>
-            </div>
+        <div class="form-group recaptcha-wrapper">
+          <re-captcha formControlName="recaptchaToken" [siteKey]="siteKey"></re-captcha>
+          <div *ngIf="isSubmitted && formControls['recaptchaToken'].errors" class="error">
+            <div *ngIf="formControls['recaptchaToken'].errors['required']">Please verify that you are not a robot.</div>
+          </div>
         </div>
 
         <button type="submit" class="submit-btn" [disabled]="contactForm.invalid || isLoading">
-            {{ isLoading ? 'Sending...' : 'Send Message' }}
+          <span class="btn-prefix" *ngIf="!isLoading">$</span>
+          <span class="btn-text">{{ isLoading ? 'transmitting...' : 'send-message' }}</span>
+          <svg class="btn-icon" *ngIf="!isLoading" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+          <span class="loading-spinner" *ngIf="isLoading"></span>
         </button>
-    </form>
+      </form>
+    </div>
+  </div>
 </div>

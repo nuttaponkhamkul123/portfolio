@@ -1,0 +1,10 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio root workspace",
+  "scripts": {
+    "start": "npm start --prefix frontend",
+    "start:frontend": "npm start --prefix frontend",
+    "build": "npm run build --prefix frontend"
+  }
+}

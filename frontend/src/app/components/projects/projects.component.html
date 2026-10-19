@@ -1,29 +1,68 @@
-<h1 class="heading-title">Projects</h1>
+<div class="projects-section-header">
+  <div class="section-tag-row">
+    <div class="section-tag">// Featured Work & Engineering Lab</div>
+    <div class="sys-status"><span class="status-pulse"></span> REGISTRY: ACTIVE</div>
+  </div>
+  <h1 class="heading-title">Selected Projects</h1>
+</div>
+
 <div class="projects">
-
-
-  @for(proj of projects; let index = $index; track proj.title) {
+  @for(proj of projects; let index = $index; track proj.id) {
   <div class="project-desc">
-    <div class="project-item">
+    <div #card class="project-item" (mouseenter)="onHover(card, true)" (mouseleave)="onHover(card, false)">
       <div class="proj-thumb">
-        <img [src]="proj.img" alt="" srcset="">
+        <img [src]="proj.img" [alt]="proj.title" loading="lazy">
+        <div class="thumb-overlay"></div>
       </div>
-      <div>
-        <div class="proj-title">{{ proj.title }}</div>
-        <div class="proj-desc">
+
+      <div class="proj-content">
+        <div class="proj-header">
+          <div class="proj-title">{{ proj.title }}</div>
+          <span class="proj-index">0{{ index + 1 }}</span>
+        </div>
+
+        <p class="proj-desc">
           {{ proj.description }}
+        </p>
+
+        <!-- Tech tags -->
+        <div class="proj-tags">
+          <span *ngFor="let tag of proj.tags" class="proj-tag">{{ tag }}</span>
         </div>
 
         <div class="project-links">
-          <a [href]="proj.link" target="_blank" class="cta-link">View Code</a>
+          <a [href]="proj.link" target="_blank" rel="noopener noreferrer" class="cta-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            <span>View Source</span>
+          </a>
         </div>
       </div>
-
-
     </div>
-
-
-
   </div>
   }
+</div>
+
+<!-- Architecture & System Highlights to fill lower canvas with high-tech substance -->
+<div class="tech-metrics-bar">
+  <div class="metric-item">
+    <div class="metric-val">4+ <span class="unit">YEARS</span></div>
+    <div class="metric-label">// Enterprise Software Engineering</div>
+  </div>
+  <div class="metric-divider"></div>
+  <div class="metric-item">
+    <div class="metric-val">SAP BTP <span class="unit">RAP / CAP</span></div>
+    <div class="metric-label">// Core Enterprise Backend Ecosystems</div>
+  </div>
+  <div class="metric-divider"></div>
+  <div class="metric-item">
+    <div class="metric-val">ANGULAR <span class="unit">& TS</span></div>
+    <div class="metric-label">// High-Performance Reactive Web Architecture</div>
+  </div>
+  <div class="metric-divider"></div>
+  <div class="metric-item">
+    <div class="metric-val">CI/CD <span class="unit">& CLOUD</span></div>
+    <div class="metric-label">// Automated Containerized Deployments</div>
+  </div>
 </div>

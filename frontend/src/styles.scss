@@ -1,10 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+
+:root {
+  --bg-deep: #060908;
+  --bg-obsidian: #090e0b;
+  --bg-card: rgba(12, 19, 16, 0.8);
+  --bg-card-hover: rgba(16, 26, 22, 0.95);
+  
+  --color-emerald: #10b981;
+  --color-emerald-glow: rgba(16, 185, 129, 0.35);
+  --color-mint: #34d399;
+  --color-cyan: #06b6d4;
+  --color-cyan-glow: rgba(6, 182, 212, 0.3);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-emerald: rgba(16, 185, 129, 0.25);
+  --border-emerald-glow: rgba(16, 185, 129, 0.5);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 html,
 body {
   margin: 0 !important;
-  font-family: Roboto;
+  padding: 0 !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .sticky {
@@ -25,6 +59,11 @@ body {
   flex-wrap: wrap;
 }
 
-.containers {
-  // height: calc(100vh - 50px) !important;
+/* Prevent temporary outline flash on mouse clicks/taps while retaining keyboard accessibility */
+a, button, li, [role="button"], [tabindex] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none !important;
 }

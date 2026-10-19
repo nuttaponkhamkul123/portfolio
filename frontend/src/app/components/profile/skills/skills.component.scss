@@ -1,102 +1,97 @@
 :host {
     /*
- * Elegant & Modern Skills Section Styling
- */
+     * Elegant & Modern Skills Section Styling
+     */
 
-    /* Main container for all skill sections */
     .skills-wrapper {
         width: 100%;
     }
 
-    /* Style for each section (Programming, Other, Social) */
     .skill-section {
-        margin-bottom: 3rem;
-        /* Adds space between each section */
+        margin-bottom: clamp(1.5rem, 4vw, 3rem);
     }
 
-    /* Title for each section (e.g., "Programing skills") */
     .skill-section-title {
-        font-size: 1.5rem;
-        font-weight: 500;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+        font-weight: 600;
         color: #ffffff;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.25rem;
         padding-bottom: 0.5rem;
-        /* A subtle border to match the main profile titles */
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(16, 185, 129, 0.25);
+        letter-spacing: 0.5px;
     }
 
-    /* This is the flex container that holds all the skill tags */
     .skill {
         display: flex;
         flex-wrap: wrap;
-        /* Allows skills to wrap to the next line on smaller screens */
-        gap: 12px;
-        /* Defines the space between each skill tag */
+        gap: 10px;
     }
 
-    /*
-   * INDIVIDUAL SKILL TAG STYLING
-   * This creates the "pill" or "tag" effect.
-   */
     .skill-container {
         display: inline-flex;
-        /* Use flex to align items inside */
         align-items: center;
         gap: 8px;
-        /* Space between icon and text, if any */
-        background-color: rgba(255, 255, 255, 0.05);
-        /* Very subtle background */
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        background-color: rgba(12, 19, 16, 0.7);
+        border: 1px solid rgba(16, 185, 129, 0.2);
         border-radius: 20px;
-        /* This creates the pill shape */
         padding: 8px 16px;
-        transition: all 0.3s ease;
-        /* Smooth transition for hover effects */
+        min-height: 38px;
+        box-sizing: border-box;
+        transition: all 0.25s ease;
     }
 
-    /* Hover effect for the skill tags */
     .skill-container:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        border-color: #3498db;
-        /* Use the blue accent color on hover */
+        background: rgba(16, 185, 129, 0.12);
+        border-color: #10b981;
         transform: translateY(-2px);
-        /* Slight lift effect */
-        cursor: default;
-        /* Change cursor to indicate it's not clickable */
+        box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
+
+        .skill-title {
+            color: #34d399;
+        }
     }
 
-    /* The text inside the skill tag */
     .skill-title {
-        color: #e0e0e0;
+        color: #cbd5e1;
         font-size: 0.9rem;
         font-weight: 500;
+        transition: color 0.2s ease;
     }
 
-    /*
-   * SOCIAL MEDIA SECTION - SPECIFIC STYLES
-   */
-
-    /* The text description next to a social icon */
     .skill-description {
         font-size: 0.9rem;
+        word-break: break-word;
     }
 
-    /* Styling for the social media links */
     .social-link {
         color: #e0e0e0;
         text-decoration: none;
-        /* Remove default underline */
         transition: color 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px; /* Touch target */
     }
 
-    /* Change link color on hover */
     .social-link:hover {
         color: #3498db;
-        /* Highlight with the blue accent color */
     }
 
-    /* Ensure SVGs inside skill-titles are aligned correctly */
     .skill-title svg {
         display: block;
+    }
+
+    @media (max-width: 768px) {
+        .skill {
+            gap: 8px;
+        }
+
+        .skill-container {
+            padding: 6px 12px;
+        }
+
+        .skill-title {
+            font-size: 0.85rem;
+        }
     }
 }

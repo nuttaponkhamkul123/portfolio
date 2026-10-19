@@ -1,47 +1,46 @@
 <div class="banner-container containers">
-  <!-- data-aos="fade-right" -->
-  <!-- @enterAnimation -->
   <div class="banner">
-    <div>
-      <!-- [@fadeAfterDelay]="h2State" -->
-      <h2 [@fadeAfterDelay]="h2State">Hello</h2>
-
+    <!-- Clean, understated intro tag -->
+    <div class="hero-intro">
+      <span class="kicker-tag">// SOFTWARE ENGINEER &amp; FULL-STACK DEVELOPER</span>
     </div>
-    <h1 [@fadeAfterDelay]="nameState">Nuttapon Khamkul</h1>
-    <p [@fadeAfterDelay]="nameState" class="hero-subtitle">A Full-Stack Developer Crafting Digital Experiences.</p>
 
-    <!-- Website for education purpose -->
-    <!-- [@fadeAfterDelay]="guideState" -->
-    <div [@fadeAfterDelay]="guideState" role="button" class="start-guide" (click)="startTour()">Start</div>
+    <!-- Letter by letter stagger reveal heading -->
+    <h1 class="hero-name" aria-label="Nuttapon Khamkul">
+      <span class="name-first">
+        <span class="char" *ngFor="let c of firstChars">{{c}}</span>
+      </span>
+      <span class="char-space">&nbsp;</span>
+      <span class="name-last">
+        <span class="char" *ngFor="let c of lastChars">{{c}}</span>
+      </span>
+    </h1>
+
+    <!-- Authentic, human subtitle -->
+    <p class="hero-subtitle">
+      Specializing in enterprise SAP BTP ecosystems, modern Angular architectures, and high-performance digital experiences with over 4 years of hands-on software development.
+    </p>
+
+    <!-- Clean typographic focus items (no AI-slop badges) -->
+    <div class="hero-meta">
+      <span class="meta-item">SAP BTP (CAP / RAP / Fiori)</span>
+      <span class="meta-sep">•</span>
+      <span class="meta-item">Angular &amp; TypeScript</span>
+      <span class="meta-sep">•</span>
+      <span class="meta-item">Node.js &amp; Next.js</span>
+      <span class="meta-sep">•</span>
+      <span class="meta-item">CI/CD &amp; Cloud</span>
+    </div>
+
+    <!-- Actions -->
+    <div class="hero-actions">
+      <button class="btn-primary start-guide" (click)="startTour()" aria-label="Explore Projects">
+        <span>Explore Work</span>
+        <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
   </div>
-  <!-- <div class="gallery">
-    <div class="image-wrapper" [ngClass]="{ active: toggleGallery }">
-      <div
-        class="gallery-item"
-        *ngFor="let img of imgs; let index = index"
-        [ngStyle]="{
-          right: 'calc(-50px * ' + index + ') ',
-          'z-index': imgs.length + index
-        }"
-      >
-        <img [src]="img" alt="" />
-      </div>
-    </div>
-    <div class="gallery-title" (click)="toggleGallery = !toggleGallery">
-      Gallery
-    </div>
-  </div> -->
-  <!-- <div class="framework">
-    <div class="framework-title"><span>Frameworks</span></div>
-
-    <div class="framework-item" *ngFor="let framework of frameworks">
-      <div class="framework-item-title">{{ framework.title }}</div>
-      <div>
-        {{ framework.desc }}
-      </div>
-      <div class="fw-icon">
-        <img [src]="framework.img" alt="" width="30" height="30" />
-      </div>
-    </div>
-  </div> -->
 </div>

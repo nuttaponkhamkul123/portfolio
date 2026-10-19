@@ -1,17 +1,22 @@
-<div class="relative container">
+<div class="relative container" (mousemove)="onMouseMove($event)">
+  <!-- Ambient subtle Matrix / Emerald tech accents -->
+  <div class="ambient-background" aria-hidden="true">
+    <div class="ambient-orb ambient-orb-1"></div>
+    <div class="ambient-orb ambient-orb-2"></div>
+    <div class="cursor-spotlight" [ngStyle]="{'background': 'radial-gradient(650px circle at ' + spotlightX + 'px ' + spotlightY + 'px, rgba(16, 185, 129, 0.06), transparent 70%)'}"></div>
+    <div class="particle-field">
+      <div *ngFor="let p of particles" class="ambient-particle" [ngStyle]="p.style"></div>
+    </div>
+  </div>
+
   <div class="sticky nav">
     <app-navigation [currentIndex]="currentIndex" (onNavigateIndex)="onNavigateIndex($event)"></app-navigation>
   </div>
 
-  <div class="contents" (scroll)="onScroll($event)">
+  <div #scrollContainer class="contents" (scroll)="onScroll($event)">
     <app-name-banner #cmps class="item" (onStartTour)="next()"></app-name-banner>
     <app-projects #cmps #proj class="item"></app-projects>
     <app-profile #cmps #prof class="item"></app-profile>
     <app-contact #cmps class="item"></app-contact>
-    <!-- <div (click)="next()" style="position:fixed;bottom:0;right:0;"> ({{currentIndex}})down</div> -->
-
   </div>
-
-  <!-- </div> -->
-
 </div>

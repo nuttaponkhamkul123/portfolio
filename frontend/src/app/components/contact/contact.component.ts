@@ -16,6 +16,7 @@ export class ContactComponent implements OnInit {
   contactForm!: FormGroup;
   isSubmitted = false;
   isLoading = false;
+  copiedEmail = false;
   siteKey = environment.recaptcha.siteKey;
 
   constructor(
@@ -23,6 +24,16 @@ export class ContactComponent implements OnInit {
     private contactService: ContactService,
     public el: ElementRef
   ) { }
+
+  copyEmail(): void {
+    if (navigator?.clipboard) {
+      navigator.clipboard.writeText('nuttapon.khamkul@avally.co.jp');
+      this.copiedEmail = true;
+      setTimeout(() => {
+        this.copiedEmail = false;
+      }, 2000);
+    }
+  }
 
   ngOnInit(): void {
     this.contactForm = this.formBuilder.group({

@@ -2,7 +2,8 @@
     <div class="skill-section">
         <div class="skill-section-title">Programming skills</div>
         <div class="skill">
-            <div class="skill-container" *ngFor="let skill of prog_skill">
+            <div #tag class="skill-container" *ngFor="let skill of prog_skill"
+                (mouseenter)="onSkillHover(tag, true)" (mouseleave)="onSkillHover(tag, false)">
                 <span class="skill-title">
                     {{skill.title}}
                 </span>
@@ -10,18 +11,16 @@
         </div>
     </div>
 
-
     <div class="skill-section">
-        <div class="skill-section-title">Other skill</div>
+        <div class="skill-section-title">Other skills</div>
         <div class="skill">
-            <div class="skill-container" *ngFor="let skill of other_skill">
+            <div #tag class="skill-container" *ngFor="let skill of other_skill"
+                (mouseenter)="onSkillHover(tag, true)" (mouseleave)="onSkillHover(tag, false)">
                 <span class="skill-title">
                     {{skill.title}}
                 </span>
-
             </div>
         </div>
-
     </div>
     <div class="skill-section">
         <div class="skill-section-title">Social media</div>

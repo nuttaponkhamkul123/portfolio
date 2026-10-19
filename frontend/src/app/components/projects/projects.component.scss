@@ -1,119 +1,424 @@
 :host {
   display: block;
-  height: 100%;
-  padding: 2rem;
+  min-height: 100%;
+  padding: clamp(1.5rem, 5vw, 3rem);
   box-sizing: border-box;
 
+  .projects-section-header {
+    margin-bottom: clamp(1.5rem, 3.5vw, 2.5rem);
 
-  /* Main heading for the page */
-  .heading-title {
-    font-size: 2.8rem;
-    font-weight: bold;
-    color: #ffffff;
-    margin-bottom: 3rem;
+    .section-tag-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .section-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #10b981;
+      letter-spacing: 1.5px;
+    }
+
+    .sys-status {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: #34d399;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 3px 10px;
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 12px;
+    }
+
+    .status-pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      animation: radarPulse 2s infinite ease-in-out;
+    }
+
+    .heading-title {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 20px rgba(16, 185, 129, 0.15);
+    }
   }
 
-  /* Container for all the project cards */
+  /* 3-Column Responsive Grid */
   .projects {
     display: grid;
-    gap: 2rem;
-    /* Space between cards */
-  }
-
-  /* CARD STYLING 
-  This is the core of the new design.
-*/
-  .project-item {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    padding: 1.5rem;
-    background-color: rgba(255, 255, 255, 0.05);
-    /* Subtle dark background */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-  }
-
-  /* INTERACTIVE HOVER & ACTIVE EFFECT
-  This uses your existing [ngClass] logic.
-*/
-  .project-item:hover,
-  .project-item.active {
-    transform: translateY(-8px) scale(1.02);
-    /* Lift and slightly enlarge the card */
-    background-color: rgba(255, 255, 255, 0.08);
-    border-color: #3498db;
-    /* Use your blue accent color */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  }
-
-  /* Style for the project thumbnail */
-  .project-item img {
-    width: 200px;
-    /* Or your preferred size */
-    height: auto;
-    border-radius: 8px;
-    object-fit: cover;
-  }
-
-  /*
-  TYPOGRAPHY & CONTENT
-*/
-  .projects {
-    display: flex;
-    flex-flow: column;
-    gap: 16px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    max-width: 1400px;
 
     .project-desc {
-      flex: 1;
-
-      ;
-    }
-
-    .proj-thumb {
-      display: block;
-    }
-
-    .proj-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #ffffff;
-      margin-bottom: 0.5rem;
-    }
-
-    .proj-desc {
-      font-size: 1rem;
-      color: rgba(255, 255, 255, 0.7);
-      line-height: 1.6;
-    }
-
-    /* CALL TO ACTION BUTTONS (Optional but Recommended)
-  Add these inside your .project-desc div.
-*/
-    .project-links {
-      margin-top: 1rem;
+      width: 100%;
       display: flex;
-      gap: 1rem;
     }
 
-    .cta-link {
-      color: #3498db;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      padding: 6px 12px;
-      border: 1px solid rgba(52, 152, 219, 0.5);
-      border-radius: 20px;
-      transition: all 0.3s ease;
+    .project-item {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      padding: 1.25rem;
+      background: rgba(11, 18, 14, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: 16px;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.5), transparent);
+      }
+
+      &:hover {
+        border-color: rgba(16, 185, 129, 0.5);
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.15);
+      }
+
+      .proj-thumb {
+        width: 100%;
+        height: 175px;
+        flex-shrink: 0;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.4s ease;
+        }
+
+        .thumb-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to top, rgba(6, 9, 8, 0.7) 0%, transparent 60%);
+          pointer-events: none;
+        }
+
+        &:hover img {
+          transform: scale(1.05);
+        }
+      }
+
+      .proj-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-top: 1.15rem;
+      }
+
+      .proj-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+
+        .proj-title {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: #ffffff;
+          line-height: 1.3;
+        }
+
+        .proj-index {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.9rem;
+          color: #10b981;
+          font-weight: 700;
+          text-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+        }
+      }
+
+      .proj-desc {
+        font-size: 0.92rem;
+        color: #94a3b8;
+        line-height: 1.6;
+        margin: 0 0 1rem 0;
+        flex-grow: 1;
+      }
+
+      .proj-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 1.25rem;
+
+        .proj-tag {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.75rem;
+          font-weight: 500;
+          padding: 3px 10px;
+          background: rgba(16, 185, 129, 0.08);
+          border: 1px solid rgba(16, 185, 129, 0.2);
+          border-radius: 10px;
+          color: #34d399;
+          transition: all 0.2s ease;
+
+          &:hover {
+            color: #ffffff;
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.18);
+          }
+        }
+      }
+
+      .project-links {
+        display: flex;
+        margin-top: auto;
+      }
+
+      .cta-link {
+        color: #34d399;
+        background: rgba(16, 185, 129, 0.1);
+        text-decoration: none;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 600;
+        font-size: 0.85rem;
+        padding: 7px 18px;
+        min-height: 38px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        box-sizing: border-box;
+
+        &:hover {
+          background: #10b981;
+          border-color: #10b981;
+          color: #060908;
+          font-weight: 700;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
+        }
+      }
     }
 
-    .cta-link:hover {
-      background-color: #3498db;
-      color: #ffffff;
-    }
+    /* Slot 3: In-Development / Innovation Lab Card */
+    .lab-card {
+      border: 1px dashed rgba(16, 185, 129, 0.35);
+      background: rgba(11, 18, 14, 0.7);
 
+      &:hover {
+        border-color: #10b981;
+      }
+
+      .lab-thumb {
+        height: 175px;
+        background: radial-gradient(circle at center, rgba(16, 185, 129, 0.12) 0%, rgba(6, 9, 8, 0.95) 75%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        border: 1px dashed rgba(16, 185, 129, 0.25);
+
+        .lab-visual {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .radar-grid {
+          position: absolute;
+          width: 110px;
+          height: 110px;
+          border-radius: 50%;
+          border: 1px solid rgba(16, 185, 129, 0.25);
+
+          &::before {
+            content: '';
+            position: absolute;
+            inset: 22px;
+            border-radius: 50%;
+            border: 1px dashed rgba(16, 185, 129, 0.2);
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(16, 185, 129, 0.15);
+          }
+        }
+
+        .radar-sweep {
+          position: absolute;
+          width: 110px;
+          height: 110px;
+          border-radius: 50%;
+          background: conic-gradient(from 0deg, transparent 0deg, rgba(16, 185, 129, 0.25) 60deg, transparent 65deg);
+          animation: spin 3s linear infinite;
+        }
+
+        .radar-dot {
+          position: absolute;
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: #34d399;
+          box-shadow: 0 0 10px #34d399;
+
+          &.dot-1 {
+            top: 42%;
+            left: 56%;
+            animation: radarPulse 1.6s infinite;
+          }
+
+          &.dot-2 {
+            bottom: 38%;
+            left: 45%;
+            animation: radarPulse 2.2s infinite 0.5s;
+          }
+        }
+
+        .lab-badge {
+          position: absolute;
+          bottom: 10px;
+          right: 10px;
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.68rem;
+          font-weight: 700;
+          padding: 3px 8px;
+          background: rgba(6, 9, 8, 0.85);
+          border: 1px solid rgba(16, 185, 129, 0.4);
+          color: #34d399;
+          border-radius: 4px;
+          letter-spacing: 0.5px;
+        }
+      }
+
+      .lab-cta {
+        border-style: dashed;
+        border-color: rgba(16, 185, 129, 0.45);
+      }
+    }
   }
 
+  /* Architecture & Engineering Metrics Bar below the grid */
+  .tech-metrics-bar {
+    margin-top: 2.5rem;
+    max-width: 1400px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    padding: 1.5rem 2rem;
+    background: rgba(11, 18, 14, 0.7);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 14px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-sizing: border-box;
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+
+      .metric-val {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: #ffffff;
+        letter-spacing: -0.5px;
+
+        .unit {
+          font-size: 0.75rem;
+          font-weight: 600;
+          color: #10b981;
+          letter-spacing: 0.5px;
+          margin-left: 4px;
+        }
+      }
+
+      .metric-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.76rem;
+        color: #94a3b8;
+        line-height: 1.4;
+      }
+    }
+
+    .metric-divider {
+      display: none;
+    }
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes radarPulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.3;
+      transform: scale(0.8);
+    }
+  }
+
+  /* Responsive Breakpoints */
+  @media (max-width: 980px) {
+    .projects {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tech-metrics-bar {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 680px) {
+    padding: 1.5rem 1rem;
+
+    .projects {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .tech-metrics-bar {
+      grid-template-columns: 1fr;
+      padding: 1.25rem 1rem;
+      gap: 1rem;
+    }
+  }
 }

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
+import anime from 'animejs';
 
 @Component({
   selector: 'app-skills',
@@ -8,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
   imports: [CommonModule],
   standalone: true
 })
-export class SkillsComponent implements OnInit {
+export class SkillsComponent implements OnInit, AfterViewInit {
+  constructor(private el: ElementRef) { }
   prog_skill = [
     {
       title: 'Javascript',
@@ -84,13 +86,40 @@ export class SkillsComponent implements OnInit {
     {
       title: 'Microsoft Excel',
       power: 10
-    },
+    }
+  ];
 
+  ngOnInit(): void { }
 
-  ]
-  constructor() { }
+  ngAfterViewInit(): void {
+    if (typeof IntersectionObserver !== 'undefined') {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            anime({
+              targets: this.el.nativeElement.querySelectorAll('.skill-container'),
+              scale: [0.65, 1],
+              opacity: [0, 1],
+              delay: anime.stagger(28),
+              duration: 700,
+              easing: 'easeOutBack'
+            });
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.1 });
 
-  ngOnInit(): void {
+      observer.observe(this.el.nativeElement);
+    }
   }
 
+  onSkillHover(el: HTMLElement, isEntering: boolean): void {
+    anime({
+      targets: el,
+      scale: isEntering ? 1.1 : 1,
+      rotateZ: isEntering ? -1.5 : 0,
+      duration: isEntering ? 250 : 200,
+      easing: isEntering ? 'easeOutElastic(1, 0.6)' : 'easeOutQuad'
+    });
+  }
 }
